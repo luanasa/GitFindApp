@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GitFind Design System - Dark-first modern theme */
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222.2 84% 4.9%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 355.7 100% 97.3%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+
+    --github: 210 12% 16%;
+    --github-foreground: 0 0% 100%;
+
+    --radius: 0.75rem;
+
+    /* GitFind brand colors */
+    --gitfind-primary: 217 91% 60%;
+    --gitfind-secondary: 263 70% 50%;
+    --gitfind-accent: 142 76% 36%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(263 70% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(263 70% 50%), hsl(290 70% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(263 70% 50% / 0.1));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 25px -3px hsl(217 91% 60% / 0.1), 0 4px 6px -2px hsl(217 91% 60% / 0.05);
+    --shadow-glow: 0 0 30px hsl(217 91% 60% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - primary theme */
+    --background: 210 11% 15%;
+    --foreground: 213 27% 84%;
+
+    --card: 213 19% 18%;
+    --card-foreground: 213 27% 84%;
+
+    --popover: 213 19% 18%;
+    --popover-foreground: 213 27% 84%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 11% 15%;
+
+    --secondary: 213 19% 20%;
+    --secondary-foreground: 213 27% 84%;
+
+    --muted: 213 19% 20%;
+    --muted-foreground: 213 15% 55%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 11% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 213 19% 22%;
+    --input: 213 19% 22%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground font-medium;
+    font-feature-settings: 'cv01', 'cv03', 'cv04', 'cv11';
+  }
+}
+
+@layer components {
+  /* GitFind Component Variants */
+  .gitfind-hero-button {
+    @apply bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+  }
+
+  .gitfind-search-input {
+    @apply w-full px-6 py-4 bg-card border border-border rounded-xl text-lg placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300;
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .gitfind-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-lg;
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .gitfind-stat-badge {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-secondary text-secondary-foreground border border-border;
+  }
+
+  .gitfind-language-tag {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors cursor-pointer;
+  }
+
+  .gitfind-repo-card {
+    @apply p-4 bg-secondary/50 rounded-lg border border-border hover:bg-secondary transition-colors;
+  }
+
+  .gitfind-skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  .gitfind-theme-toggle {
+    @apply p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 text-secondary-foreground transition-all duration-300 border border-border;
+  }
+
+  /* GitHub-like contribution heatmap */
+  .contribution-day {
+    @apply w-3 h-3 rounded-sm;
+  }
+
+  .contribution-level-0 { @apply bg-muted; }
+  .contribution-level-1 { @apply bg-success/30; }
+  .contribution-level-2 { @apply bg-success/50; }
+  .contribution-level-3 { @apply bg-success/70; }
+  .contribution-level-4 { @apply bg-success; }
+}
